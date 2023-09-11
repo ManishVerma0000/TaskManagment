@@ -10,7 +10,6 @@ import {
   LogoutIcon,
   UsersIcon,
   VideosIcon,
-
 } from "./icons";
 
 const menuItems = [

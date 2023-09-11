@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
     <div className="h-screen flex flex-row justify-start">
       <Sidebar />
       {/* <div className="">hey</div> */}
-      <div className="bg-primary flex-1 p-4 text-white">
+      <div className="bg-white flex-1 p-4 text-black">
         {children}
       </div>
     </div>

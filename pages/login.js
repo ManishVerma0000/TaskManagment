@@ -2,35 +2,28 @@ import React, { useState } from 'react';
 import Router from 'next/router';
 import { useRouter } from 'next/router';
 import cogotoast from 'cogo-toast'
+import axios from 'axios'
 
 const Login = () => {
     const router = useRouter()
+    const [formData, setFormData] = useState(new FormData());
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState('')
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your login logic here
-        console.log('Form data submitted:', formData);
-    };
 
     const loginfunction = () => {
-        if (email == "manishverma88180@gmail.com" && password == "manishverma") {
-            cogotoast.success("login success")
-            router.push("/")
+        if (email && password) {
+            const data = { email: email, password: password }
+            console.log(data)
+            axios.post("http://127.0.0.1:5000/loginuser", data).then((res) => {
+                console.log(res)
+                cogotoast.success("login is successful...")
+                router.push("/")
+            }).catch((err) => {
+                console.log(err)
+                cogotoast.warn("error occurs")
+            })
         } else {
             cogotoast.warn("wrong password")
 
@@ -48,7 +41,9 @@ const Login = () => {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#">
+                        <form className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => {
+                            e.preventDefault()
+                        }}>
                             <div>
                                 <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" onChange={(e) => {
