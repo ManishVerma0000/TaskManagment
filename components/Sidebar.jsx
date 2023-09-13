@@ -16,6 +16,9 @@ const menuItems = [
   { id: 1, label: "Total Emails", icon: ArticleIcon, link: "/" },
   { id: 2, label: "Pending Tasks", icon: ArticleIcon, link: "/posts" },
   { id: 3, label: "Completed Tasks", icon: ArticleIcon, link: "/users" },
+  { id: 4, label: "Assigned Tasks", icon: CollapsIcon, link: "/users" },
+
+
 
 ];
 

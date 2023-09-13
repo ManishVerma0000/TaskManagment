@@ -79,3 +79,92 @@ a {
 .custom-table tbody tr:hover {
   background-color: #ddd;
 }
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background-color: #fff;
+
+  margin: 20px;
+ 
+ 
+
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.skapsphoto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* UserDetails.css */
+
+.user-details-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.user-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.user-details h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.user-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Style the link back to the user list or other pages */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  background-color: #0056b3;
+}
+
+
+.imageofskaps{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius:33px;
+}
+
+.tablecontent{
+  border: 2px solid black;
+}
+
+.displayemail{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

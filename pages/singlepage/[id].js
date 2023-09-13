@@ -10,7 +10,7 @@ const CustomTable = ({ }) => {
     const [sender, setSender] = useState()
     const [body, setBody] = useState()
     const [Recivied, setRecivied] = useState()
-    const[Subject,setSubject]= useState()
+    const [Subject, setSubject] = useState()
     useEffect(() => {
         if (id) {
             axios.get(`http://127.0.0.1:5000/resource/${id}`).then((res) => {

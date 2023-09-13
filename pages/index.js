@@ -45,14 +45,11 @@ export default function Home() {
             result.map((res, index) => {
 
               return (
-                <tr>
+                <tr key={index}>
                   <td className="border px-4 py-2" onClick={(e) => {
                     setAttributes(e.target),
-                    
-                    
-                    
-                    functionrender()
-                  }} >{index + 1}</td>
+                      functionrender()
+                  }} >{index}</td>
                   <td className="border px-4 py-2"
 
                   >{res['Sender']}</td>

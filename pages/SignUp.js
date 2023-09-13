@@ -10,16 +10,16 @@ const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState('')
-
-
+    const [UserName, setUserName] = useState("")
+    const [ConfirmPassword, setConfirmPassword] = useState("")
     const loginfunction = () => {
-        if (email && password) {
-            const data = { email: email, password: password }
+        if (email && password && UserName && ConfirmPassword) {
+            const data = { email: email, password: password, username: UserName, ConfirmPassword: ConfirmPassword }
             console.log(data)
-            axios.post("http://127.0.0.1:5000/loginUsr", data).then((res) => {
+            axios.post("http://127.0.0.1:5000/RegisterUser", data).then((res) => {
                 console.log(res)
-                cogotoast.success("login is successful...")
-                router.push("/")
+                cogotoast.success("Register is successful...")
+                router.push("/login")
             }).catch((err) => {
                 console.log(err)
                 cogotoast.warn("error occurs")
@@ -44,6 +44,13 @@ const Login = () => {
                         <form className="space-y-4 md:space-y-6" action="#" onSubmit={(e) => {
                             e.preventDefault()
                         }}>
+
+                            <div>
+                                <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your UserName</label>
+                                <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" onChange={(e) => {
+                                    setUserName(e.target.value)
+                                }} />
+                            </div>
                             <div>
                                 <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                                 <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="" onChange={(e) => {
@@ -51,9 +58,16 @@ const Login = () => {
                                 }} />
                             </div>
                             <div>
-                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Password</label>
                                 <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" onChange={(e) => {
                                     setPassword(e.target.value)
+                                }} />
+                            </div>
+
+                            <div>
+                                <label for="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm  Password</label>
+                                <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" onChange={(e) => {
+                                    setConfirmPassword(e.target.value)
                                 }} />
                             </div>
                             <div className="flex items-center justify-between">
@@ -70,13 +84,11 @@ const Login = () => {
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", }}>
                                 <button style={{ backgroundColor: "yellow", height: 40, width: 100, borderRadius: 10, fontWeight: "bold" }} onClick={() => {
                                     loginfunction()
-                                }}>Login Here</button>
+                                }}>SignUp Here</button>
                             </div>
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500" onClick={(e) => {
-                                    window.location.href = '/SignUp'
-                                }}>Sign up</a>
-                            </p>
+                            {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                                Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                            </p> */}
                         </form>
                     </div>
                 </div>
