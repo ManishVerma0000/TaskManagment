@@ -91,8 +91,8 @@ a {
   background-color: #fff;
 
   margin: 20px;
- 
- 
+
+
 
 }
 
@@ -100,7 +100,7 @@ a {
   padding: 16px;
 }
 
-.skapsphoto{
+.skapsphoto {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,19 +152,69 @@ a {
 }
 
 
-.imageofskaps{
+.imageofskaps {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius:33px;
+  border-radius: 33px;
 }
 
-.tablecontent{
+.tablecontent {
   border: 2px solid black;
 }
 
-.displayemail{
+.displayemail {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.btnsubmitdetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.btninsubmitdetails {
+  height: 40px;
+  width: 200px;
+  border: 2px solid black;
+}
+
+.btninsubmitdetails:hover {
+  background-color: yellow;
+}
+
+.addusertopcontianer {
+  height: 100vh;
+
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.addthsuserusernameinputtag{
+  height: 50px;
+  width: 400px;
+  border: 2px solid #000000;
+  margin: 10px;
+  border-radius: 10px;
+  border-width: 3px;
+}
+
+.btnfortheadduser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnofthesubmit{
+  height: 50px;
+  width: 100px;
+  background-color: yellow;
+  border-radius: 5px;
+  margin-top: 10px;
 }

@@ -18,6 +18,8 @@ const Login = () => {
             console.log(data)
             axios.post("http://127.0.0.1:5000/loginUsr", data).then((res) => {
                 console.log(res)
+                localStorage.setItem('email', email)
+                localStorage.setItem('password', password)
                 cogotoast.success("login is successful...")
                 router.push("/")
             }).catch((err) => {

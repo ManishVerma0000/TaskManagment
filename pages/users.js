@@ -1,7 +1,20 @@
 import React from "react";
 import Layout from "../components/Layout";
-
+import { useEffect, useState } from "react";
+import axios from "axios"
+import cogoToast from "cogo-toast";
 const users = () => {
+  const [result, setResult] = useState([]);
+  const [attributes, setAttributes] = useState()
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5000/totalAssign").then((res) => {
+      const data = JSON.parse(res.data.data);
+      setResult(data)
+    }).catch((err) => {
+      cogoToast.warn('error occurs')
+    })
+  }, [])
+
   return <Layout>
     <div className="container mx-auto p-5">
       <h2 className="text-xl font-semibold mb-4">Sample Table</h2>
@@ -10,37 +23,32 @@ const users = () => {
           <thead>
             <tr>
               <th className="px-4 py-2">ID</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
+              <th className="px-4 py-2">Sender</th>
               <th className="px-4 py-2">Subject</th>
-              <th className="px-4 py-2">Contact</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="px-4 py-2">Recivied Date</th>
+              <th className="px-4 py-2">Assigned To</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td className="border px-4 py-2">1</td>
-              <td className="border px-4 py-2">Admin</td>
-              <td className="border px-4 py-2">Skaps@gamil.com</td>
-              <td className="border px-4 py-2">Skaps@gamil.com</td>
-              <td className="border px-4 py-2">Skaps@gamil.com</td>
-              <td className="border px-4 py-2">
-                <button className="bg-black-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded mr-2">
-                  Edit
-                </button>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded">
-                  Delete
-                </button>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded">
-                  Completed
-                </button>
-              </td>
-            </tr>
+          <tbody>{
+            result.map((res, index) => {
+              return (
+                <tr key={index}>
+                  <td className="border px-4 py-2" onClick={(e) => {
+                    setAttributes(e.target)
+                  }} >{index}</td>
+                  <td className="border px-4 py-2"
+                  >{res['sender']}</td>
+                  <td className="border px-4 py-2">{res['Subject']}</td>
+                  <td className="border px-4 py-2">{res['Recivied']}</td>
+                  <td className="border px-4 py-2">{res['assignedTo']}</td>
+                </tr>
+              )
+            })
+          }
           </tbody>
         </table>
       </div>
     </div>
-
   </Layout>;
 };
 

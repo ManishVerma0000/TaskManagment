@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   ArticleIcon,
   CollapsIcon,
@@ -17,8 +17,7 @@ const menuItems = [
   { id: 2, label: "Pending Tasks", icon: ArticleIcon, link: "/posts" },
   { id: 3, label: "Completed Tasks", icon: ArticleIcon, link: "/users" },
   { id: 4, label: "Assigned Tasks", icon: CollapsIcon, link: "/users" },
-
-
+  { id: 5, label: "Add User", icon: UsersIcon, link: "/AddUser" },
 
 ];
 
@@ -67,6 +66,10 @@ const Sidebar = () => {
   const sendTOTheLogin = () => {
     router.push("/login")
   }
+  // useEffect(()=>{
+  //   console.log(localStorage.getItem(email))
+
+  // })
 
   return (
     <div

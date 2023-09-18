@@ -51,18 +51,13 @@ export default function Home() {
                       functionrender()
                   }} >{index}</td>
                   <td className="border px-4 py-2"
-
                   >{res['Sender']}</td>
                   <td className="border px-4 py-2">{res['Subject']}</td>
                   <td className="border px-4 py-2">{res['Sender Email Address'].includes("@") ? res['Sender Email Address'] : "invalid email format"}</td>
-
                 </tr>
               )
-
             })
-
           }
-
           </tbody>
         </table>
       </div>
